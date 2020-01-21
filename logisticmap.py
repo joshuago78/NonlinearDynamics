@@ -27,7 +27,7 @@ def plot_diffs(r, x, xhat, n):
     plt.show()
 
 
-def avg_abs_diff(n, r, x, xhat):
+def avg_abs_diff(r, x, xhat, n):
     trajectory1 = logistic_map(r, x, n)
     trajectory2 = logistic_map(r, xhat, n)
     diffs = [abs(trajectory1[i]-trajectory2[i]) for i in range(n)]
