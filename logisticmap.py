@@ -32,3 +32,17 @@ def avg_abs_diff(r, x, xhat, n):
     trajectory2 = logistic_map(r, xhat, n)
     diffs = [abs(trajectory1[i]-trajectory2[i]) for i in range(n)]
     return sum(diffs)/n
+
+
+def plot_bifurcation(x0, rmin, rmax, rstep, n, k):
+    xpoints = []
+    ypoints = []
+    r = rmin
+    while r < rmax:
+        mapr = logistic_map(r, x0, n)
+        for pt in mapr[k:]:
+            xpoints.append(r)
+            ypoints.append(pt)
+        r += rstep
+    plt.plot(xpoints, ypoints, "ob", alpha=0.5)
+    plt.show()
